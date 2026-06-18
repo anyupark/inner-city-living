@@ -311,7 +311,7 @@ section{position:relative}
 /* CTA */
 .cta{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
 .cta::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 88% 8%,rgba(233,75,60,.2),transparent 55%)}
-.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;position:relative;z-index:2;align-items:start}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;position:relative;z-index:2;align-items:start}.cta-grid>*{min-width:0}.cta-list li{min-width:0}#leadform select,#leadform input,#leadform textarea{min-width:0}#leadform .btn{white-space:normal}
 .cta h2{font-size:clamp(2.2rem,4.4vw,3.4rem);margin-bottom:22px}
 .cta h2 em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--coral-bright)}
 .cta-list{list-style:none;margin-top:28px;display:grid;gap:15px}
