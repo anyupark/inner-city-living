@@ -692,6 +692,9 @@ footer{background:var(--ink-2);color:rgba(245,243,238,.6);padding:60px 0 38px}
 .wsum span{font-size:.78rem;font-weight:700;background:#fff;border:1px solid var(--line);padding:6px 10px;border-radius:20px;color:var(--ink-soft)}
 .wsum span b{color:var(--ink)}
 .wiz .form-fine{margin-top:14px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.werr{margin-top:12px;padding:12px 14px;border-radius:10px;background:rgba(233,75,60,.1);border:1px solid rgba(233,75,60,.35);color:var(--coral-deep);font-size:.88rem;line-height:1.5}
+.werr a{color:var(--coral-deep);font-weight:800;text-decoration:underline}
 .toast{position:fixed;left:50%;bottom:86px;transform:translate(-50%,20px);background:var(--ink);color:var(--paper);padding:12px 18px;border-radius:30px;font-weight:700;font-size:.88rem;box-shadow:0 16px 40px rgba(0,0,0,.35);opacity:0;transition:.35s;z-index:1500;pointer-events:none;max-width:calc(100vw - 32px);text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:900px){
@@ -1161,9 +1164,10 @@ footer{background:var(--ink-2);color:rgba(245,243,238,.6);padding:60px 0 38px}
           </div>
           <div class="field"><label for="em">E-Mail</label><input id="em" type="email" name="email" required autocomplete="email"></div>
           <div class="field"><label for="tel">Telefon</label><input id="tel" type="tel" name="telefon" placeholder="+43 ..." required autocomplete="tel"></div>
-          <input type="hidden" name="einkommen" id="f-einkommen"><input type="hidden" name="kanal" id="f-kanal"><input type="hidden" name="wohnung" id="f-wohnung"><input type="hidden" name="fragen" id="f-fragen"><input type="hidden" name="steuersatz" id="f-steuer">
+          <input type="hidden" name="access_key" id="w3key" value="82769e61-87c1-41bb-8342-a2db2a6e2da7"><input type="hidden" name="subject" value="Neue Anfrage: Erstgespräch Inner City Living"><input type="hidden" name="from_name" value="Inner City Living Website"><input type="hidden" name="replyto" id="f-replyto"><input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true"><input type="hidden" name="einkommen" id="f-einkommen"><input type="hidden" name="kanal" id="f-kanal"><input type="hidden" name="wohnung" id="f-wohnung"><input type="hidden" name="fragen" id="f-fragen"><input type="hidden" name="steuersatz" id="f-steuer">
           <div class="wnav"><button type="button" class="wback">← Zurück</button><button type="submit" class="btn btn-coral">Erstgespräch anfragen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
-          <p class="form-fine">Mit dem Absenden stimmen Sie zu, dass Glacis Immobilien Sie zu Inner City Living kontaktiert. Keine Weitergabe an Dritte. Keine Steuer- oder Anlageberatung.</p>
+          <p class="werr" id="werr" hidden></p>
+          <p class="form-fine">Mit dem Absenden stimmen Sie zu, dass Glacis Immobilien Sie zu Inner City Living kontaktiert. Die Übermittlung erfolgt verschlüsselt über den Formulardienst Web3Forms (siehe Datenschutz). Keine Weitergabe zu Werbezwecken. Keine Steuer- oder Anlageberatung.</p>
         </div>
         <div class="form-ok" id="formok">
           <div class="ok-ic"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 13.5L10.5 19L21 7" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -1271,7 +1275,8 @@ footer{background:var(--ink-2);color:rgba(245,243,238,.6);padding:60px 0 38px}
     <p>Unsere Website wird bei einem externen Hosting-Anbieter betrieben. Beim Aufruf werden technische Daten verarbeitet, die der Browser automatisch übermittelt (u. a. IP-Adresse, Datum/Uhrzeit des Zugriffs, aufgerufene Seiten, übertragene Datenmenge, Browsertyp und -version, Betriebssystem, Referrer-URL). Die Verarbeitung erfolgt ausschließlich in unserem Auftrag; Rechtsgrundlage ist unser berechtigtes Interesse an einem sicheren, zuverlässigen und effizienten Betrieb.</p>
     <h3>Kontaktaufnahme</h3>
     <p>Bei Kontaktaufnahme über Formulare oder per E-Mail werden die angegebenen personenbezogenen Daten ausschließlich zur Bearbeitung und Beantwortung Ihrer Anfrage verarbeitet. Die Verarbeitung erfolgt, soweit zur Durchführung vorvertraglicher Maßnahmen oder zur Vertragserfüllung erforderlich, oder auf Grundlage berechtigter Interessen. Die Daten werden nur so lange gespeichert, wie dies erforderlich ist; in der Regel erfolgt die Löschung spätestens nach drei Jahren ohne weiteren Kontakt, sofern keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
-    <h3>Server-Logfiles</h3>
+    <p><strong>Formulardienst (Auftragsverarbeiter):</strong> Für die technische Verarbeitung und Zustellung der Formularübermittlungen setzen wir den Dienst <strong>Web3Forms</strong> (USA) als Auftragsverarbeiter ein. Die Übertragung erfolgt verschlüsselt (TLS); übermittelt werden ausschließlich die von Ihnen eingegebenen Angaben sowie Ihre Auswahl auf dieser Seite (z. B. Einkommensbereich, gemerkte Wohnung, Fragen). Die Daten werden an unsere E-Mail-Adresse zugestellt und bei Web3Forms nicht dauerhaft gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Anfrage). Zum Schutz vor automatisiertem Missbrauch setzen wir ein für Sie unsichtbares Prüffeld (Honeypot) und eine Zeitprüfung ein; es kommt kein Drittanbieter-CAPTCHA zum Einsatz.</p>
+<h3>Server-Logfiles</h3>
     <p>Beim Aufruf unserer Website werden automatisch Server-Logfiles erstellt (aufgerufene Datei/Seite, übertragene Datenmenge, Abrufstatus, Browsertyp und -version, Betriebssystem, Referrer-URL). Die Verarbeitung dient der Funktionsfähigkeit, Sicherheit und Stabilität (Rechtsgrundlage: berechtigtes Interesse) und die Daten werden spätestens nach 12 Wochen gelöscht, sofern nicht zu Beweiszwecken benötigt.</p>
     <h3>SSL-Verschlüsselung</h3>
     <p>Wir verwenden das verbreitete SSL-Verfahren in Verbindung mit der höchsten von Ihrem Browser unterstützten Verschlüsselungsstufe. Zudem setzen wir geeignete technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten gegen Manipulation, Verlust oder unbefugten Zugriff zu schützen.</p>
@@ -1551,13 +1556,23 @@ const toast=(()=>{const t=document.getElementById('toast');let h;return msg=>{if
     document.getElementById('f-einkommen').value=inc||'';document.getElementById('f-kanal').value=kan||'';
   }
   document.addEventListener('icl:change',sync);sync();
+  const loadedAt=Date.now(),ENDPOINT='https://api.web3forms.com/submit',err=document.getElementById('werr');
+  const showErr=m=>{err.innerHTML=m;err.hidden=false;};
   f.addEventListener('submit',e=>{
-    e.preventDefault();
+    e.preventDefault();err.hidden=true;
     const req=[...f.querySelectorAll('[required]')];const bad=req.find(i=>!i.value.trim()||(i.type==='email'&&!/.+@.+\..+/.test(i.value)));
-    if(bad){bad.focus();bad.style.borderColor='var(--coral)';return;}
-    sync();
-    f.querySelectorAll('.wstep,.wprog').forEach(n=>n.style.display='none');
-    document.getElementById('formok').classList.add('show');
+    if(bad){bad.focus();bad.style.borderColor='var(--coral)';showErr('Bitte füllen Sie Vorname, Nachname, E-Mail und Telefon aus.');return;}
+    const hp=f.querySelector('input[name="botcheck"]'); if(hp&&hp.checked)return;          // honeypot
+    if(Date.now()-loadedAt<2500)return;                                                   // time-trap
+    sync(); document.getElementById('f-replyto').value=f.querySelector('#em').value.trim();
+    const fd=new FormData(f); fd.delete('botcheck'); [...fd.keys()].forEach(k=>{if(String(fd.get(k)).trim()==='')fd.delete(k);});
+    const btn=f.querySelector('button[type=submit]'),prev=btn.innerHTML; btn.disabled=true; btn.textContent='Wird gesendet …';
+    fetch(ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:fd})
+      .then(r=>r.json().then(d=>({ok:r.ok&&d&&d.success,d})))
+      .then(r=>{if(!r.ok)throw new Error((r.d&&r.d.message)||'submit_failed');
+        f.querySelectorAll('.wstep,.wprog').forEach(n=>n.style.display='none');document.getElementById('formok').classList.add('show');
+        try{localStorage.removeItem('icl_unit');}catch(e){}})
+      .catch(()=>{btn.disabled=false;btn.innerHTML=prev;showErr('Das Absenden hat leider nicht geklappt. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt: <a href="mailto:office@glacis-immobilien.com">office@glacis-immobilien.com</a> · <a href="tel:+4338424785">+43 3842 43 7 85</a>');});
   });
 })();
 
